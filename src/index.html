@@ -4,15 +4,69 @@
     <script type='importmap'>
       {
         "imports": {
-          "@fullcalendar/core": "https://cdn.skypack.dev/@fullcalendar/core@6.1.8",
-          "@fullcalendar/daygrid": "https://cdn.skypack.dev/@fullcalendar/daygrid@6.1.8"
+            "@fullcalendar/core": "https://cdn.skypack.dev/@fullcalendar/core@6.1.8",
+            "@fullcalendar/daygrid": "https://cdn.skypack.dev/@fullcalendar/daygrid@6.1.8",
+            "@fullcalendar/timegrid": "https://cdn.skypack.dev/@fullcalendar/timegrid@6.1.8",
+            "@fullcalendar/list": "https://cdn.skypack.dev/@fullcalendar/list@6.1.8",
+            "@fullcalendar/interaction": "https://cdn.skypack.dev/@fullcalendar/interaction@6.1.8"
         }
       }
     </script>
     <script src="./index.js" type='module'></script>
     <link rel="stylesheet" href="./styles/index.css">
+    <title>Scheduler</title>
   </head>
   <body>
-    <div class="calendar" id='calendar'></div>
+    <main>
+        <div class="header">
+          <div class="title-container">
+            <img width="50" height="50" src="https://img.icons8.com/cotton/64/overtime--v4.png" alt="overtime--v4"/>
+            <h1 class="title-app">My Scheduler</h1>
+          </div>
+          <button id="btn-add" class="btn-add">Generate a new schedule</button>
+        </div>
+    
+        <div class="calendar-container">
+            <div class="calendar" id='calendar'></div>    
+        </div>
+
+        <div id="modal" class="modal-add-schedule-none">
+            <div class="modal-container">
+              <div class="title-modal">
+                <div class="logo">
+                  <img width="30" height="30" src="https://img.icons8.com/cotton/64/overtime--v4.png" alt="overtime--v4"/>
+                  <h1>My Scheduler</h1>
+                </div>
+                <img id="close-modal" class="close-modal" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/macos-close.png" alt="macos-close"/>
+              </div>
+              <form id="form-generate" class="modal-content">
+                <p>You must enter all the subjects (domain) to be able to generate the timetable.</p>
+                <div class="input-group">
+                  <label for="domain">Domain or Subject</label>
+                  <select name="matiere" id="domain">
+                    <option id="sgbd" value="sgbd">SGBD</option>
+                    <option id="admin-sys" value="admin-sys">System and network administrator</option>
+                    <option id="web-dev" value="web-dev">Web Development</option>
+                    <option id="algo" value="algo">Algorithm</option>
+                    <option id="comm" value="comm">Communication</option>
+                    <option id="english" value="english">English</option>
+                  </select>
+                </div>
+                <div class="input-group">
+                  <label for="duration">Duration (6 hours max)</label>
+                  <input id="duration" type="number" min="1" max="6" placeholder="0">
+                </div>
+                <div class="btn-group">
+                  <button id="add-domain" class="add-domain" type="none">
+                    Add domain
+                  </button>
+                  <button id="generate" class="btn-generate" type="none">
+                    Generate
+                  </button>
+                </div>
+              </form>
+            </div>
+        </div>
+    </main>
   </body>
 </html>
